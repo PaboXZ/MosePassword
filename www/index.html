@@ -16,10 +16,11 @@
         <div id="mid-window">
             <div id="welcome-text">Welcome to</div>
             <div id="logo-text">Mose Password Manager</div>
-            <input type="text" placeholder="login" onfocus="this.placeholder=''" onblur="this.placeholder='login'">
-            <input type="password" placeholder="password" onfocus="this.placeholder=''" onblur="this.placeholder='password'">
-            <input type="submit" value="Login">
-        </div>
+			<form action="passtool.php" method="post">
+				<input name="login" type="text" placeholder="login" onfocus="this.placeholder=''" onblur="this.placeholder='login'">
+				<input name="password" type="password" placeholder="password" onfocus="this.placeholder=''" onblur="this.placeholder='password'">
+				<input type="submit" value="Login">
+			</form>
     </div>
 </body>
 </html>
