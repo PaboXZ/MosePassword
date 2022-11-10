@@ -16,6 +16,31 @@
 	<link rel="preconnect" href="https://fonts.googleapis.com"/>
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap" rel="stylesheet"/>
+	<script>
+		function closePasswordWindow()
+		{
+			document.getElementById('show-password-container').style.cssText='display: none';
+		}
+		function openPasswordWindow(siteName)
+		{
+			document.getElementById("show-box-name").innerHTML = siteName + ":";
+			
+			var divSiteName = document.getElementById('hidden-password-for-' + siteName).innerHTML;
+			document.getElementById("show-box-password").innerHTML = divSiteName;
+			
+			document.getElementById('show-password-container').style.cssText='display: block';
+		}
+		function copyFromShowBox()
+		{
+			 navigator.clipboard.writeText(document.getElementById("show-box-password").innerHTML);
+			 alert("Copied password!");
+		}
+		function copyFromSiteTile(siteName)
+		{
+			navigator.clipboard.writeText(document.getElementById("hidden-password-for-" + siteName).innerHTML);
+			alert("Copied Password!");
+		}
+	</script>
 </head>
 <body>
 	<div id="topbar">
@@ -44,14 +69,14 @@
 								
 									<div class="site-box-tile">
 										<div class="site-box-name">
-											'.$pass_name.'<br>
-											'.htmlentities(generate_pass($pass_id, $_SESSION['user_login'], $_SESSION['user_password'], $pass_name)).'
+											<div id="site-box-name-'.$pass_name.'">'.$pass_name.'</div>
+											<div id="hidden-password-for-'.$pass_name.'">'.htmlentities(generate_pass($pass_id, $_SESSION['user_login'], $_SESSION['user_password'], $pass_name)).'</div>
 										</div>
 										<div class="site-box-menu">
-											<div class="site-box-button"><a href="" title="Show password"><i class="icon-show"></i></a></div>
-											<div class="site-box-button"><a href="" title="Copy password to clpiboard"><i class="icon-copy"></i></a></div>
+											<div class="site-box-button"><i title="Show password" onclick="openPasswordWindow('."'".$pass_name."'".')"><i class="icon-show"></i></i></div>
+											<div class="site-box-button"><i title="Copy password to clpiboard" onclick="copyFromSiteTile('."'".$pass_name."'".')"><i class="icon-copy"></i></i></div>
 											<div class="site-box-button"><a href="menu_options.php?delete_password='.$pass_name.'" title="Delete password!"><i class="icon-delete"></i></a></div>
-											<div class="site-box-button"><a href="" title="Edit password"><i class="icon-edit"></i></a></div>
+											<div class="site-box-button"><i title="Edit password"><i class="icon-edit"></i></i></div>
 											<div style="clear: both;"></div>
 										</div>
 									</div>
@@ -87,15 +112,15 @@
 			?>
 		</div>
 	</div>
-	<div id="show-function-container">
+	<div id="show-password-container">
 		<div id="show-box">
-			<div id="show-box-exit" onclick="document.getElementById('show-function-container').style.cssText='display: none;'"><i class="icon-exit"></i></div>
+			<div id="show-box-exit" onclick="closePasswordWindow()"><i class="icon-exit"></i></div>
 			<div id="show-box-header">
 				Your password for <div id="show-box-name">Fb:</div>
 			</div>
 			<div id="show-box-bottom">
-				<div id="show-box-copy"><i class="icon-copy"></i></div>
-				<div id="show-box-password">qhbfdssdheh</div>
+				<div id="show-box-copy" onclick="copyFromShowBox()"><i class="icon-copy"></i></div>
+				<div id="show-box-password"></div>
 			</div>
 		</div>
 	</div>

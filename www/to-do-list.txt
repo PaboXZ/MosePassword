@@ -25,9 +25,13 @@ Webpage Layout
 Generate password(From hash) -- Done - not from hash, user main password is secure anyways because of modulo operation and too many combinations (may be improved), validate variables more(dont allow values over 20 characters long and repeating strings)
 ERROR: if values length are like 2, 6, 12, password will be repeatative
 ERROR: watch for 89 value (will give always the same result)
+Passwords from AJAX(!?)
+Add nicer copied password prompt
+
 IMPORTANT: show pass through htmlentieties(Done)
-Show Password
-Delete Password
+Show Password (Done)
+Delete Password (Done)
+
 
 ::Additional
 Copy password to clipboard

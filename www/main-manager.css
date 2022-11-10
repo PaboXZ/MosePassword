@@ -82,7 +82,7 @@ body
 	padding: 4px 2px;
 	width: 25%;
 }
-.site-box-button a
+.site-box-button > i, .site-box-button a
 {
 	cursor: pointer;
 	display: block;
@@ -91,15 +91,18 @@ body
 	background-color: #312440;
 	border-radius: 3px;
 }
-.site-box-button a:hover
+.site-box-button > i:hover, .site-box-button a:hover
 {
 	background-color: #5c4575;
 }
-.site-box-button a:focus
+.site-box-button > i:focus, .site-box-button a:focus
 {
 	box-shadow: 0 0 3px 3px rgba(0, 0, 0, 0.3);
 	background-color: #5c4575;
 	outline: none;
+}
+[id^="site-box-name-"]
+{
 }
 #insert-form
 {
@@ -147,7 +150,7 @@ body
 {
 	box-shadow: 0 0 3px 3px rgba(0, 0, 0, 0.3);
 }
-#show-function-container
+#show-password-container
 {
 	position: fixed;
 	top: 0;
@@ -155,6 +158,7 @@ body
 	background-color: rgba(0, 0, 0, 0.5);
 	width: 100%;
 	height: 100vh;
+	display: none;
 }
 #show-box
 {
@@ -216,4 +220,8 @@ body
 	display: inline-block;
 	color: #2b5409;
 	padding-left: 15px;
+}
+[id^="hidden-password-for-"]
+{
+	display: none;
 }
