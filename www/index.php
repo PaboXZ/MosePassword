@@ -1,3 +1,11 @@
+<?php
+	session_start();
+	if(isset($_SESSION['user_id'])) 
+	{
+		header('Location: manager.php');
+		exit();
+	}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,16 +19,26 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div id="top-warning">Under construction</div>
+    <div id="top-warning">Under construction</div> 
     <div id="container">
         <div id="mid-window">
             <div id="welcome-text">Welcome to</div>
             <div id="logo-text">Mose Password Manager</div>
-			<form action="passtool.php" method="post">
+			<form action="login.php" method="post">
 				<input name="login" type="text" placeholder="login" onfocus="this.placeholder=''" onblur="this.placeholder='login'">
 				<input name="password" type="password" placeholder="password" onfocus="this.placeholder=''" onblur="this.placeholder='password'">
+				<?php
+					if(isset($_SESSION['error_dsc']))
+					{
+						echo '<div style="color: red; text-align: center; padding: 2px 0 0 0;">'.$_SESSION['error_dsc']."</div>";
+						unset($_SESSION['error_dsc']);
+					}
+				?>
 				<input type="submit" value="Login">
 			</form>
+			<div id="register">
+				<a href="register.php">Register</a>
+			</div>
     </div>
 </body>
 </html>

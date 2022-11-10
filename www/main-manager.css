@@ -1,0 +1,149 @@
+body
+{
+	margin: 0;
+	background-color: #728a83;
+	background-image: url("../img/oriental-tiles.png");
+	font-family: 'Poppins', sans-serif;
+}
+#topbar
+{
+	background-color: #edf5ee;
+	padding: 5px;
+	border-bottom: 3px solid #808aa6;
+	position: fixed;
+	top: 0;
+	width: 100%;
+}
+#top-logo
+{
+	display: inline-block;
+	padding: 7px;
+	margin-left: 80px;
+}
+#logout-button
+{
+	float: right;
+	margin-right: 50px;
+}
+#logout-button a
+{
+	display: inline-block;
+	padding: 7px;
+	border-radius: 10px;
+	color: black;
+	text-decoration: none;
+	text-transform: uppercase;
+}
+#logout-button a:hover
+{
+	background-color: #808aa6;
+}
+#main-content-box
+{
+	margin-top: 100px;
+	margin-right: 200px;
+	margin-left: 200px;
+	padding: 50px;
+	min-height: 500px;
+	box-shadow: 0 0 5px 8px rgba(80,80,80, 0.3);
+	background-color: #edf5ee;
+}
+.site-box
+{
+	float: left;
+	box-sizing: border-box;
+	width: 25%;
+	padding: 15px 25px;
+	text-align: center;
+}
+.site-box-tile
+{
+	border-radius: 2px;
+	background-color: #9297a6;
+	box-shadow: 0 0 2px 3px rgba(60,60,60, 0.4);
+	white-space: nowrap;
+}
+.site-box-name
+{
+	padding: 10px 0 0 0;
+}
+.site-box-menu
+{
+	box-sizing: border-box;
+	margin-left: auto;
+	margin-right: auto;
+	width: 60%;
+	padding: 10px 0;
+}
+.site-box-button
+{
+	float: left;
+	box-sizing: border-box;
+	padding: 4px 2px;
+	width: 25%;
+}
+.site-box-button a
+{
+	cursor: pointer;
+	display: block;
+	color: white;
+	text-decoration: none;
+	background-color: #312440;
+	border-radius: 3px;
+}
+.site-box-button a:hover
+{
+	background-color: #5c4575;
+}
+.site-box-button a:focus
+{
+	box-shadow: 0 0 3px 3px rgba(0, 0, 0, 0.3);
+	background-color: #5c4575;
+	outline: none;
+}
+#insert-form
+{
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 60px;	
+	text-align: center;
+}
+#insert-form-header
+{
+	font-size: 130%;
+	line-height: 150%;
+	padding: 12px;
+}
+#insert-form input[type="text"]
+{
+	outline: none;
+	padding: 6px;
+	font-size: 130%;
+	border-radius: 4px;
+	border: 2px solid #808aa6;
+	outline: none;
+}
+#insert-form input[type="text"]:focus
+{
+	box-shadow: 0 0 3px 3px rgba(0, 0, 0, 0.3);
+}
+#insert-form input[type="submit"]
+{
+	margin-left: 10px;
+	padding: 6px 15px;
+	border-radius: 4px;
+	border: 2px solid #312440;
+	outline: none;
+    background-color: #312440;
+	font-size: 130%;
+	color: white;
+	cursor: pointer;
+}
+#insert-form input[type="submit"]:hover
+{
+	background-color: #3b2b4d;
+}
+#insert-form input[type="submit"]:focus
+{
+	box-shadow: 0 0 3px 3px rgba(0, 0, 0, 0.3);
+}

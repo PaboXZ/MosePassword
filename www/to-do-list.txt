@@ -1,0 +1,39 @@
+----Check for vulnerabilities
+::Access to pages
+States logged in, logged out
+Check for required data
+Errors management with server errors handling
+
+
+----Optimize code and add comments
+Comments with required variabless
+Comments with variables sent to db and injection handling
+
+
+----Push GIT
+
+
+----Add Documentation
+Variable naming scheme (optimize)
+List of restricted variables
+Webpage Layout
+
+
+----Functions
+::MVP
+Generate password(From hash) -- Done - not from hash, user main password is secure anyways because of modulo operation and too many combinations (may be improved), validate variables more(dont allow values over 20 characters long and repeating strings)
+ERROR: if values length are like 2, 6, 12, password will be repeatative
+ERROR: watch for 89 value (will give always the same result)
+IMPORTANT: show pass through htmlentieties(Done)
+Show Password
+Delete Password
+
+::Additional
+Copy password to clipboard
+Add pages
+Edit password options
+Edit user options
+JS integration
+
+::Optional
+Responsive css
