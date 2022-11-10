@@ -61,6 +61,7 @@ body
 	border-radius: 2px;
 	background-color: #9297a6;
 	box-shadow: 0 0 2px 3px rgba(60,60,60, 0.4);
+	border: 3px solid #808aa6;
 	white-space: nowrap;
 }
 .site-box-name

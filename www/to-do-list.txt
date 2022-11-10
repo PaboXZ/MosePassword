@@ -11,10 +11,11 @@ Comments with variables sent to db and injection handling
 
 
 ----Push GIT
-
+First done - keep up
 
 ----Add Documentation
 Variable naming scheme (optimize)
+--css starting with icon-* reserved for fontello (check fontello.css)
 List of restricted variables
 Webpage Layout
 
@@ -34,6 +35,7 @@ Add pages
 Edit password options
 Edit user options
 JS integration
+Fontello Licensing
 
 ::Optional
 Responsive css

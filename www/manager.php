@@ -12,6 +12,7 @@
 	<title>Generate your passwords!</title>
 	<meta charset="utf-8"/>
 	<link rel="stylesheet" type="text/css" href="main-manager.css"/>
+	<link rel="stylesheet" type="text/css" href="css/fontello.css"/>
 	<link rel="preconnect" href="https://fonts.googleapis.com"/>
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap" rel="stylesheet"/>
@@ -40,16 +41,17 @@
 						$pass_id = $db_single_result[0];
 							echo 
 								'<div class="site-box">
+								
 									<div class="site-box-tile">
 										<div class="site-box-name">
 											'.$pass_name.'<br>
 											'.htmlentities(generate_pass($pass_id, $_SESSION['user_login'], $_SESSION['user_password'], $pass_name)).'
 										</div>
 										<div class="site-box-menu">
-											<div class="site-box-button"><a href="">s</a></div>
-											<div class="site-box-button"><a href="">c</a></div>
-											<div class="site-box-button"><a title="delete" href="menu_options.php?delete_password='.$pass_name.'">d</a></div>
-											<div class="site-box-button"><a href="">e</a></div>
+											<div class="site-box-button"><a href="" title="Show password"><i class="icon-show"></i></a></div>
+											<div class="site-box-button"><a href="" title="Copy password to clpiboard"><i class="icon-copy"></i></a></div>
+											<div class="site-box-button"><a href="menu_options.php?delete_password='.$pass_name.'" title="Delete password!"><i class="icon-delete"></i></a></div>
+											<div class="site-box-button"><a href="" title="Edit password"><i class="icon-edit"></i></a></div>
 											<div style="clear: both;"></div>
 										</div>
 									</div>
