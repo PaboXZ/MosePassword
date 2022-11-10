@@ -8,7 +8,7 @@ Errors management with server errors handling
 ----Optimize code and add comments
 Comments with required variabless
 Comments with variables sent to db and injection handling
-
+Add color table
 
 ----Push GIT
 First done - keep up

@@ -60,7 +60,6 @@ body
 {
 	border-radius: 2px;
 	background-color: #9297a6;
-	box-shadow: 0 0 2px 3px rgba(60,60,60, 0.4);
 	border: 3px solid #808aa6;
 	white-space: nowrap;
 }
@@ -147,4 +146,74 @@ body
 #insert-form input[type="submit"]:focus
 {
 	box-shadow: 0 0 3px 3px rgba(0, 0, 0, 0.3);
+}
+#show-function-container
+{
+	position: fixed;
+	top: 0;
+	z-index: 100;
+	background-color: rgba(0, 0, 0, 0.5);
+	width: 100%;
+	height: 100vh;
+}
+#show-box
+{
+	box-sizing: border-box;
+	position: relative;
+	margin: 35vh auto 0 auto;
+	width: 30%;
+	padding: 40px 25px;
+	background-color: #edf5ee;
+}
+#show-box-exit
+{
+	position: absolute;
+	top: 0;
+	right: 0;
+	padding: 10px 12px;
+	font-size: 20px;
+	cursor: pointer;
+}
+#show-box-exit:hover
+{
+	background-color: #ddd;
+}
+#show-box-header
+{
+	margin: 0 auto 0 auto;
+	text-align: center;
+	font-size: 140%;
+}
+#show-box-name
+{
+	display: inline-block;
+}
+#show-box-bottom
+{
+	width: 70%;
+	margin: 10px auto 0 auto;
+	padding: 10px;
+	border: 2px solid #91ba70;
+	border-radius: 5px;
+	background-color: #ace87b;
+}
+#show-box-copy
+{
+	display: inline-block;
+	padding: 4px;
+	border-radius: 4px;
+	background-color: #4c8022;
+	color: white;
+	box-shadow: 2px 2px 2px rgba(80,80,80,0.4);
+	cursor: pointer;
+}
+#show-box-copy:hover
+{
+	background-color: #64a133; 
+}
+#show-box-password
+{
+	display: inline-block;
+	color: #2b5409;
+	padding-left: 15px;
 }

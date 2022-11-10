@@ -61,7 +61,7 @@
 							{
 								$j = 4;
 								echo '<div style="clear: both"></div>';
-							}
+							}	
 					}
 				}
 				$db_result->close();
@@ -85,6 +85,18 @@
 					unset($_SESSION['err_manager_insert']);
 				}
 			?>
+		</div>
+	</div>
+	<div id="show-function-container">
+		<div id="show-box">
+			<div id="show-box-exit" onclick="document.getElementById('show-function-container').style.cssText='display: none;'"><i class="icon-exit"></i></div>
+			<div id="show-box-header">
+				Your password for <div id="show-box-name">Fb:</div>
+			</div>
+			<div id="show-box-bottom">
+				<div id="show-box-copy"><i class="icon-copy"></i></div>
+				<div id="show-box-password">qhbfdssdheh</div>
+			</div>
 		</div>
 	</div>
 

@@ -29,6 +29,12 @@
       "css": "delete",
       "code": 59399,
       "src": "elusive"
+    },
+    {
+      "uid": "8da3ac534210aae9c0f0e13804c1df97",
+      "css": "exit",
+      "code": 59392,
+      "src": "websymbols"
     }
   ]
 }
