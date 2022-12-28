@@ -41,8 +41,9 @@ body
 #main-content-box
 {
 	margin-top: 100px;
-	margin-right: 200px;
-	margin-left: 200px;
+	margin-right: auto;
+	margin-left: auto;
+	width: 70%;
 	padding: 50px;
 	min-height: 500px;
 	box-shadow: 0 0 5px 8px rgba(80,80,80, 0.3);

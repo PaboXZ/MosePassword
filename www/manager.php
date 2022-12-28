@@ -119,7 +119,7 @@
 				Your password for <div id="show-box-name">Fb:</div>
 			</div>
 			<div id="show-box-bottom">
-				<div id="show-box-copy" onclick="copyFromShowBox()"><i class="icon-copy"></i></div>
+				<div id="show-box-copy" onclick="copyFromShowBox()" title="Copy password"><i class="icon-copy"></i></div>
 				<div id="show-box-password"></div>
 			</div>
 		</div>

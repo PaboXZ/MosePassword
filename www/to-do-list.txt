@@ -9,6 +9,7 @@ Errors management with server errors handling
 Comments with required variabless
 Comments with variables sent to db and injection handling
 Add color table
+Optimize css for various browser resolutions
 
 ----Push GIT
 First done - keep up
@@ -43,3 +44,5 @@ Fontello Licensing
 
 ::Optional
 Responsive css
+Add Contact
+Add ToS
