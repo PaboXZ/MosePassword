@@ -10,7 +10,6 @@
 	
 	$login = htmlentities($_POST['login'],ENT_QUOTES,"UTF-8");
 	$password = $_POST['password'];
-	
 	try
 	{
 		
@@ -20,8 +19,7 @@
 		{
 			throw new Exception($db_connection->mysqli_connect_errno);
 		}
-		$sql_login = "SELECT * FROM login WHERE login='$login'";
-		
+		$sql_login = "SELECT * FROM user_data WHERE user_login='$login'";
 		if($sql_result = $db_connection->query($sql_login)){
 			
 			$db_connection->close();
@@ -35,9 +33,9 @@
 				$sql_result->close();
 				
 				//check if password hashes match
-				if(password_verify($password, $login_data['password']))
+				if(password_verify($password, $login_data['user_password']))
 				{
-					$_SESSION['user_login'] = $login_data['login'];
+					$_SESSION['user_login'] = $login_data['user_login'];
 					$_SESSION['user_id'] = $login_data['user_id'];
 					$_SESSION['user_password'] = $password;
 					header('Location: manager.php');
