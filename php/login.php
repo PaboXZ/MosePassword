@@ -1,45 +1,62 @@
 <?php
+    
+	class LoginResponse {
+
+        protected int|bool $err_no = 0;
+        protected string $err_message = "Access denied";
+
+        public function setErrorNumber(int|bool $code): void {
+            $this->err_no = $code;
+        }
+
+        public function setErrorMessage(string $message): void {
+            $this->err_message = $message;
+        }
+
+        public function getData(){
+            return ["err_no" => $this->err_no, "err_message" => $this->err_message];
+        }
+    }
+
 	session_start();
-	
+	$response = new LoginResponse();
+
 	if(!(isset($_POST['login']) and isset($_POST['password'])) or isset($_SESSION['user_id']))
 	{
-		exit("Access denied");
+		return json_encode($response->getData());
+        exit;
 	}
-	
-	$login = htmlentities($_POST['login'],ENT_QUOTES,"UTF-8");
+
+	$login = $_POST['login'];
 	$password = $_POST['password'];
 
-    class ajax_response {
-        public $err_no = 10;
-        public $err_message = "Server Error";
-    }
-	
-    $response = new ajax_response();
+
 	try
 	{
 		
 		require_once "db_connect.php";
 
-		$db_connection = new mysqli($host, $db_user, $db_password, $db_name);
+		$db_connection = db_connect();
 
-		if($db_connection->errno!=0)
-			throw new Exception("Server internal error", 10);
+		if($db_connection === false)
+			throw new Exception("Server connection error", 10);
 		
-		if(!$sql_result = $db_connection->query("SELECT * FROM user_data WHERE user_login='$login'"))
-            throw new Exception("Server internal error", 11);
+		if(!($db_query = $db_connection->prepare('SELECT * FROM user_data WHERE user_login = :login OR user_email = :login')))
+            throw new Exception("Server connection error", 11);
 			
-		$db_connection->close();
-			
-        $user_count = $sql_result->num_rows;
+        $query_params = array("login" => $login);
         
-        if($user_count == 0)
+        if(!($db_query->execute($query_params)))
+            throw new Exception("Server connection error", 12);
+
+        if($db_query->rowCount() > 1)
+            throw new Exception("Server connection error", 13);
+
+        if($db_query->rowCount() === 0)
             throw new Exception("Invalid login credentials", 21);
 
-        if($user_count != 1)
-                throw new Exception("Server internal error", 12);
-            
-        $login_data = $sql_result->fetch_assoc();
-        $sql_result->close();
+        
+        $login_data = $db_query->fetch(PDO::FETCH_ASSOC);
         
         if(!password_verify($password, $login_data['user_password']))
             throw new Exception("Invalid login credentials", 22);
@@ -48,16 +65,15 @@
         $_SESSION['user_id'] = $login_data['user_id'];
         $_SESSION['user_password'] = $password;
 
-        $response->err_no = 0;
-        $response->err_message = "Success";
+        $response->setErrorNumber(false);
+        $response->setErrorMessage(NULL);
 	}
 	catch(Exception $err)
 	{
-        $response->err_no = $err->getCode();
-        $response->err_message = $err->getMessage();
+        $response->setErrorNumber($err->getCode());
+        $response->setErrorMessage($err->getMessage());
 	}
 
-    $response_JSON = json_encode($response);
+    return json_encode($response->getData());
 
-    echo $response_JSON;
-?>
+    ?>
