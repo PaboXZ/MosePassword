@@ -13,7 +13,7 @@
     <meta charset="utf-8">
     <meta name="keywords" content="password manager, security, passwords">
     <meta name="description" content="Easy to use password manager."/>
-    <link rel="stylesheet" href="main.css" type="text/css"/>
+    <link rel="stylesheet" href="css/index.css" type="text/css"/>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap" rel="stylesheet">
