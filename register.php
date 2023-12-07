@@ -33,7 +33,7 @@
     <div id="container">
         <div id="mid-window">
             <div id="welcome-text">Register now!</div>
-			<form action="registration_check.php" method="post">
+			<form action="php/registration.php" method="post">
 			
 				<input name="login" type="text" placeholder="login" onfocus="this.placeholder=''" onblur="this.placeholder='login'"
 					<?php

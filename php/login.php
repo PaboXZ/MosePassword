@@ -55,18 +55,17 @@
         if($db_query->rowCount() === 0)
             throw new Exception("Invalid login credentials", 21);
 
-        
         $login_data = $db_query->fetch(PDO::FETCH_ASSOC);
         
         if(!password_verify($password, $login_data['user_password']))
             throw new Exception("Invalid login credentials", 22);
 
         $_SESSION['user_login'] = $login_data['user_login'];
-        $_SESSION['user_id'] = $login_data['user_id'];
+        $_SESSION['user_id'] = $login_data['id'];
         $_SESSION['user_password'] = $password;
 
         $response->setErrorNumber(false);
-        $response->setErrorMessage(NULL);
+        $response->setErrorMessage("");
 	}
 	catch(Exception $err)
 	{

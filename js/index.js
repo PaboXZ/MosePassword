@@ -23,7 +23,7 @@ function loginRequest(event) {
         event.target.classList.remove('button-loading');
         event.target.innerHTML='Login';
 
-        if(responseLoginObject.err_no === 0)
+        if(responseLoginObject.err_no === false)
             window.location.href = "manager.php";
         else
             alert(responseLoginObject.err_message);
