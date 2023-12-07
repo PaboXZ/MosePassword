@@ -23,7 +23,7 @@
 
 	if(!(isset($_POST['login']) and isset($_POST['password'])) or isset($_SESSION['user_id']))
 	{
-		return json_encode($response->getData());
+		echo json_encode($response->getData());
         exit;
 	}
 
@@ -74,6 +74,6 @@
         $response->setErrorMessage($err->getMessage());
 	}
 
-    return json_encode($response->getData());
+    echo json_encode($response->getData());
 
     ?>
