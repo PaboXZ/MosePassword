@@ -20,12 +20,14 @@
     $response = new RegistrationResponse();
 
 	session_start();
-
+    
 	if(!(isset($_POST['login']) && isset($_POST['password']) && isset($_POST['password_repeat']) && isset($_POST['email']))){
 		$response->server_error = "Access denied";
         $response->error_flag = true;
         sendResponse();
 	}
+
+
 
 	$login = $_POST['login'];
 	$password = $_POST['password'];
