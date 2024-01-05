@@ -1,7 +1,5 @@
-
 const registerButton = document.getElementsByTagName('button')[0];
 registerButton.addEventListener('click', registerRequest);
-
 
 function registerRequest(event) {
     

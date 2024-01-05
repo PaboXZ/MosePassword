@@ -3,9 +3,27 @@ var loginButton = document.getElementsByTagName('button')[0];
 loginButton.addEventListener('click', loginRequest);
 
 function loginRequest(event) {
-    let login = document.getElementById('login-form').children[0].value;
-    let password = document.getElementById('login-form').children[1].value;
-    var responseLoginObject;
+    let loginObject = document.getElementById('login-form').children[0];
+    let passwordObject = document.getElementById('login-form').children[1];
+
+    loginObject.setCustomValidity('');
+    passwordObject.setCustomValidity('');
+
+    if(!loginObject.validity.valid){
+        loginObject.setCustomValidity('Enter login');
+        loginObject.reportValidity();
+        return;
+    }
+
+    if(!passwordObject.validity.valid){
+        passwordObject.setCustomValidity('Enter password');
+        passwordObject.reportValidity();
+        return;
+    }
+    
+
+
+    let responseLoginObject;
     
     event.target.innerHTML=`
     <svg viewBox="0 0 100 100">
@@ -29,6 +47,6 @@ function loginRequest(event) {
             alert(responseLoginObject.err_message);
     }
 
-    xhttp.send('login=' + login + '&password=' + password);
-
+    xhttp.send('login=' + loginObject.value + '&password=' + passwordObject.value);
+    
 }

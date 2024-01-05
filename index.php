@@ -26,18 +26,21 @@
 </head>
 <body>
     <div id="top-warning">Alpha version</div> 
-    <div id="container">
-        <div id="mid-window">
-            <div id="welcome-text">Welcome to</div>
-            <div id="logo-text">Mose Password Manager</div>
-			<form id="login-form" action="login.php" method="POST">
-				<input name="login" type="text" placeholder="login" onfocus="this.placeholder=''" onblur="this.placeholder='login'">
-				<input name="password" type="password" placeholder="password" onfocus="this.placeholder=''" onblur="this.placeholder='password'">
-				<button type="button">Login</button>
-			</form>
-			<div id="register">
-				<a href="register.php">Register</a>
-			</div>
-    </div>
+    <main>
+        <div id="container">
+            <div id="mid-window">
+                <div id="welcome-text">Welcome to</div>
+                <div id="logo-text">Mose Password Manager</div>
+                <form id="login-form" action="login.php" method="POST">
+                    <input name="login" type="text" placeholder="login" required onfocus="this.placeholder=''" onblur="this.placeholder='login'">
+                    <input name="password" type="password" placeholder="password" required onfocus="this.placeholder=''" onblur="this.placeholder='password'">
+                    <button type="button">Login</button>
+                </form>
+                <div id="register">
+                    <a href="register.php">Register</a>
+                </div>
+            </div>
+        </div>
+    </main>
 </body>
 </html>
