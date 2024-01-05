@@ -33,10 +33,10 @@
 
 	try
 	{
-		
-		require_once "db_connect.php";
+		error_reporting(0);
+		require_once "DbConnection.php";
 
-		$db_connection = db_connect();
+		$db_connection = new DbConnection();
 
 		if($db_connection === false)
 			throw new Exception("Server connection error", 10);
@@ -67,6 +67,10 @@
         $response->setErrorNumber(false);
         $response->setErrorMessage("");
 	}
+    catch(PDOException $err){
+        $response->setErrorNumber($err->getCode());
+        $response->setErrorMessage("Server connection error");
+    }
 	catch(Exception $err)
 	{
         $response->setErrorNumber($err->getCode());

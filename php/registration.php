@@ -85,9 +85,9 @@
 
 	try
 	{
-        require_once "db_connect.php";
+        require_once "DbConnection.php";
 
-		if(!($db_connection = db_connect()))
+		if(!($db_connection = new DbConnection()))
             throw new Exception("Server error", 100);
 
         if(!($db_query = $db_connection->prepare('SELECT user_login FROM user_data WHERE user_login = :login')))
