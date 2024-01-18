@@ -56,6 +56,7 @@
             throw new Exception("Invalid login credentials", 22);
 
         $_SESSION['user_login'] = $login_data['user_login'];
+        $_SESSION['user_email'] = $login_data['user_email'];
         $_SESSION['user_id'] = $login_data['id'];
         $_SESSION['user_password'] = $password;
 
