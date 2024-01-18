@@ -11,7 +11,7 @@ try
 	require_once "php/DbConnection.php";
 	$db_connection = new DbConnection();
 
-	require "password_generate.php";
+	require "php/password_generate.php";
 	
 	$table_name = "passwords_".$_SESSION['user_login'];
 	$pass_data = [];

@@ -6,7 +6,7 @@
 		private $db_password="";
 		private $db_name="password_manager";
 
-		function __construct(){
+		public function __construct(){
 			$dsn = "mysql:host=$this->host;dbname=$this->db_name";
 			parent::__construct($dsn, $this->db_user, $this->db_password);
 		}

@@ -37,20 +37,15 @@
 		require_once "DbConnection.php";
 
 		$db_connection = new DbConnection();
-
-		if($db_connection === false)
-			throw new Exception("Server connection error", 10);
-		
-		if(!($db_query = $db_connection->prepare('SELECT * FROM user_data WHERE user_login = :login OR user_email = :login')))
-            throw new Exception("Server connection error", 11);
+        
+        $db_query = $db_connection->prepare('SELECT * FROM user_data WHERE user_login = :login OR user_email = :login');
 			
         $query_params = array("login" => $login);
         
-        if(!($db_query->execute($query_params)))
-            throw new Exception("Server connection error", 12);
+        $db_query->execute($query_params);
 
         if($db_query->rowCount() > 1)
-            throw new Exception("Server connection error", 13);
+            throw new Exception("Server connection error", 11);
 
         if($db_query->rowCount() === 0)
             throw new Exception("Invalid login credentials", 21);

@@ -5,7 +5,6 @@
         public string $password_error = "";
         public string $email_error = "";
         public string $tos_error = "";
-        public string $recaptcha_error = "";
         public string $server_error = "";
 
         public bool $error_flag = false;
@@ -69,16 +68,6 @@
 		$response->tos_error = "Accept ToS";
         $response->error_flag = true;
     }
-
-
-	$secret_key = "6LdKg7oiAAAAANspc3sgQhM8A40CRzFomygWQnFy";
-	$recaptcha_response = file_get_contents('https://www.google.com/recaptcha/api/siteverify?secret='.$secret_key.'&response='.$_POST['g-recaptcha-response']);
-	$recaptcha_response = json_decode($recaptcha_response);
-
-	if(!($recaptcha_response->success)){
-		$response->recaptcha_error = "Bot validation failed";
-        $response->error_flag = true;
-    }
 	 
     if($response->error_flag === true)
         sendResponse();
@@ -87,24 +76,20 @@
 	{
         require_once "DbConnection.php";
 
-		if(!($db_connection = new DbConnection()))
-            throw new Exception("Server error", 100);
+		$db_connection = new DbConnection();
 
-        if(!($db_query = $db_connection->prepare('SELECT user_login FROM user_data WHERE user_login = :login')))
-            throw new Exception("Server error", 101);
+        $db_query = $db_connection->prepare('SELECT user_login FROM user_data WHERE user_login = :login');
 
-        if(!($db_query->execute(["login" => $login])))
-            throw new Exception("Server error", 102);
+        $db_query->execute(["login" => $login]);
 
 		if($db_query->rowCount() > 0){
 			$response->login_error .= "Login already exists";
             $response->error_flag = true;
 		}
-        if(!($db_query = $db_connection->prepare('SELECT user_email FROM user_data WHERE user_email = :email')))
-            throw new Exception("Server error", 103);
 
-        if(!($db_query->execute(["email" => $email])))
-            throw new Exception("Server error", 104);
+        $db_query = $db_connection->prepare('SELECT user_email FROM user_data WHERE user_email = :email');
+
+        $db_query->execute(["email" => $email]);
 
         if($db_query->rowCount() > 0){
             $response->login_error .= "Login already exists";
@@ -118,16 +103,19 @@
 		{
 			$password_hashed = password_hash($password, PASSWORD_DEFAULT);
 
-			if(!($db_query = $db_connection->prepare("INSERT INTO user_data (user_login, user_email, user_password) VALUES (:login, :email, :password)")))
-                throw new Exception("Server error", 105);
+			$db_query = $db_connection->prepare("INSERT INTO user_data (user_login, user_email, user_password) VALUES (:login, :email, :password)");
 
             $query_params = ["login" => $login, "email" => $email, "password" => $password_hashed];
             
-            if(!($db_query->execute($query_params)))
-                throw new Exception("Server error", 105);
+            $db_query->execute($query_params);
 		}
 		
 	}
+    catch(PDOException $e){
+        $response->server_error = "Server error";
+        $response->error_flag = true;
+		sendResponse();
+    }
 	catch(Exception $e)
 	{
         $response->server_error = $e->getMessage();

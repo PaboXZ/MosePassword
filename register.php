@@ -18,7 +18,6 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap" rel="stylesheet">
-	<script src="https://www.google.com/recaptcha/api.js"></script>
 	<script src="js/register.js" defer></script>
 
 </head>
@@ -32,7 +31,6 @@
 				<input name="email" type="email" placeholder="e-mail" onfocus="this.placeholder=''" onblur="this.placeholder='e-mail'"/>
 				<input name="password" type="password" placeholder="password" onfocus="this.placeholder=''" onblur="this.placeholder='password'"/>
 				<input name="password_repeat" type="password" placeholder="repeat password" onfocus="this.placeholder=''" onblur="this.placeholder='repaet password'"/>
-				<div class="g-recaptcha" data-sitekey="6LdKg7oiAAAAAEhusRGYpdwo9RKa-VIT5cTt_t0w"></div>
 				<label><input type="checkbox" name="tos"/>Accept Terms of Service</label>
 				<button type="button">Register</button>
 			</form>

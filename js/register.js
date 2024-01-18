@@ -14,5 +14,5 @@ function registerRequest(event) {
 
     xhttp.onload = function() {console.log(JSON.parse(this.responseText))};
 
-    xhttp.send('login=' + login + '&password='+ password + '&password_repeat=' + passwordRepeat + '&email=' + email + '&g-recaptcha-response=' + grecaptcha.getResponse());
+    xhttp.send('login=' + login + '&password='+ password + '&password_repeat=' + passwordRepeat + '&email=' + email);
 }
